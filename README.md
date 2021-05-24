@@ -10,3 +10,9 @@ Develop a full stack (MERN) application that allows users to sign up, create pro
 
 # 5/24/2021
 - Scaffolding the front end using create-react-app 
+- basic folder structure so far is: 
+- places-->components + pages
+- shared-->components
+- user-->components + pages
+After installing react-router-dom some basic routes were routes were established and everything was working ~~fine~~ WHY DON'T MY ROUTES WORK PROPERLY????
+![enterSwitch](https://user-images.githubusercontent.com/32680255/119415321-5e315980-bcbf-11eb-8da6-2c00f34bfa9b.png)
