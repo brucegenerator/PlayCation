@@ -8,5 +8,5 @@ Develop a full stack (MERN) application that allows users to sign up, create pro
 - Then connecting MongoDB to the back end to store individual user login information.
 - Authentication and Authorization will be handled with encryption (bcrypt) and JSON Web Tokens (jsonwebtoken)
 
-#5/24/2021
+# 5/24/2021
 - Scaffolding the front end using create-react-app 
