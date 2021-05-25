@@ -1,7 +1,18 @@
-import React from 'react';
+import React from "react";
+
+import UsersList from "../components/UsersList";
 
 const Users = () => {
-  return <h2>Users route works!</h2>
+  const USERS = [
+    {
+      id: Math.random(),
+      name: "bruce generator",
+      image:
+        "https://cdn2.bulbagarden.net/upload/thumb/4/49/Ash_Pikachu.png/800px-Ash_Pikachu.png",
+      places: 3,
+    },
+  ];
+  return <UsersList items={USERS} />;
 };
 
 export default Users;
