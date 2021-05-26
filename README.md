@@ -37,3 +37,25 @@ Develop a full stack (MERN) application that allows users to sign up, create pro
 -  and rendered to the DOM
 - ![pika](https://user-images.githubusercontent.com/32680255/119420438-82defe80-bcca-11eb-96fb-ac77335eec67.png)
 - She aint pretty but we're getting there!
+# 5/25/2021
+- Today I want to add a styled component which will hold the image and information about a user as an Avatar component.
+- I will create subfolders in the shared/components folder structure and name them UIElements/Avatar/Avatar.js
+- This will hold the users image info
+- ![avatar](https://user-images.githubusercontent.com/32680255/119582654-ef253500-bd92-11eb-9cfa-44470d0a46ce.png)
+- Now I want to use Link component from react-router-dom to wrap image container and set the path equal to the users id as props
+- ![link](https://user-images.githubusercontent.com/32680255/119582800-3e6b6580-bd93-11eb-87d1-5bc2a1d2eb3e.png)
+- Next I want the container holding the user image and info to have a card-like style so I will create a Card component in the       UIElements folder which will
+  wrap the Link and Avatar components
+- ![card](https://user-images.githubusercontent.com/32680255/119582970-a0c46600-bd93-11eb-8c74-3092f5de2c9f.png)
+- I added the className "user-item__content" to the Card component because the overlapping styles made it butt ugly
+-  ![chu](https://user-images.githubusercontent.com/32680255/119583273-3b24a980-bd94-11eb-87a6-746526491736.png)
+- Much better
+- ![better](https://user-images.githubusercontent.com/32680255/119583366-71fabf80-bd94-11eb-80dd-36d8739ccf93.png)
+- I like to add hover effects to my CSS because they are easy to implement and really adds some much needed sugar to the website
+- ![sugar](https://user-images.githubusercontent.com/32680255/119583519-c69e3a80-bd94-11eb-862f-721e029a135b.png)
+- This inverses the text color and background for a nice effect
+
+
+
+
+
