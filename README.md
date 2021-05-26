@@ -54,6 +54,9 @@ Develop a full stack (MERN) application that allows users to sign up, create pro
 - I like to add hover effects to my CSS because they are easy to implement and really adds some much needed sugar to the website
 - ![sugar](https://user-images.githubusercontent.com/32680255/119583519-c69e3a80-bd94-11eb-862f-721e029a135b.png)
 - This inverses the text color and background for a nice effect
+- ![hover](https://user-images.githubusercontent.com/32680255/119584186-2517e880-bd96-11eb-808a-267faed1a76f.png)
+- I think thats all for today. Im tired
+- Maybe tomorrow I can work on a nav bar or something
 
 
 
