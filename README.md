@@ -57,6 +57,40 @@ Develop a full stack (MERN) application that allows users to sign up, create pro
 - ![hover](https://user-images.githubusercontent.com/32680255/119584186-2517e880-bd96-11eb-808a-267faed1a76f.png)
 - I think thats all for today. Im tired
 - Maybe tomorrow I can work on a nav bar or something
+# 6/2/2021
+- I added a bunch of components last night but didnt blog it in real time because I was tired from work so today I will attempt to go over what I added.
+- I started by adding a Navigation subfolder in shared components folder to hold my navigation components handling the sidedrawer/hamburger menu and of course NavLinks and NavBar
+- Here I have a MainHeader component
+-![Main](https://user-images.githubusercontent.com/32680255/120561398-747f9980-c3d2-11eb-9d60-ef914528e63d.PNG)
+- Im passing props.children in between the opening and closing tags of the header JSX so I can render and content I wish within the opening and closing tags of the Component itself
+- I am importing MainHeader inside MainNavigation so that populate the MainHeader, via props.children, within the MainNavigation component.
+-![MainHeaderChildren](https://user-images.githubusercontent.com/32680255/120561822-45b5f300-c3d3-11eb-9eed-0800adc3cabd.PNG)
+- The hamburger menu is a stack of three spans styled to look like the traditional eponymous button
+- In essence the content between MainHeader open and closing tags is forwarded to the MainHeader component itself as props.children
+- I then import the MainNavigation inside App.js just after the Router component
+-![AppNav](https://user-images.githubusercontent.com/32680255/120562297-1fdd1e00-c3d4-11eb-87a3-1a5702b2ac67.PNG)
+- When rendered and styled it appears as such
+- ![Navbar](https://user-images.githubusercontent.com/32680255/120562338-34211b00-c3d4-11eb-829a-8f31d2290265.PNG)
+- The SideDrawer component is rendered using the same logic as with MainHeader using props.children to show content. but styled differently of course.
+- Then it is imported in MainNavigation adjacent to the MainHeader within the MainNavigation component and rendered conditionally with React Hooks and then using a ternary expression.
+- ![hooks](https://user-images.githubusercontent.com/32680255/120563206-05a43f80-c3d6-11eb-9a07-7f22077463d7.PNG)
+- Hooks are useful for managing state within functional components without having to use Class Components or fancy libraries like redux. 
+- Here I create two variables drawerIsOpen and setDrawerOpen and set them equal to useState and pass the value "false" as a parameter. The two variables act the same way as "this.state" and "this.setState", respectively, as one would use in a Class based Component. The syntax here is called array destructuring and I read some articles about it and still have much to learn.
+- Then with two simple functions:
+- ![onClicks](https://user-images.githubusercontent.com/32680255/120564539-228e4200-c3d9-11eb-8b7a-5c1b2f20d75d.PNG)
+- We can change the state from false to true and vice versa. One gets attached to the onClick prop of the hamburger menu button for opening the sideDrawer and the other I want attached to a special component called BackDrop which essentially holds a div with a specific styling to darken the background outside the sideDrawer for a nice effect but also is clickable to close the menu.
+- ![sideDrawerOpenClose](https://user-images.githubusercontent.com/32680255/120564835-c546c080-c3d9-11eb-92bc-7c4fc5619cd7.PNG)
+- Here I am using ternary expressions to determine the state of the sideDrawer as open or closed.
+- So thats what I did last night 6/1/2021
+# 6/2/2021 cont.
+- Today I would like to animate the SideDrawer component with a so that it has a nice transition effect of sliding into view instead of abruptly appearing.
+- 
+
+
+
+
+
+
 
 
 
