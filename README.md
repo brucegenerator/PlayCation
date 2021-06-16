@@ -83,8 +83,14 @@ Develop a full stack (MERN) application that allows users to sign up, create pro
 - Here I am using ternary expressions to determine the state of the sideDrawer as open or closed.
 - So thats what I did last night 6/1/2021
 # 6/2/2021 cont.
-- Today I would like to animate the SideDrawer component with a so that it has a nice transition effect of sliding into view instead of abruptly appearing.
-- 
+- Today I would like to animate the SideDrawer component with a third party library called CSSTransition which comes from react-transition-group. This ultimately changes the logic I set up in the previous session for rendering the sideDrawer component.
+- ![CSSTransition](https://user-images.githubusercontent.com/32680255/120566417-3176f380-c3dd-11eb-8fac-e521a6e850ca.PNG)
+- CSSTransition can be configured by adding props which are specific to CSS Transition. Documentation can be found here http://reactcommunity.org/react-transition-group/css-transition
+- the most intriguing aspect is the "classNames" prop which takes an initial string ("slide-in-left") and then applies, in sequence, a series of CSS transition animations.
+- ![classNames](https://user-images.githubusercontent.com/32680255/120566850-2d97a100-c3de-11eb-91cf-3d97ac7a9cfd.PNG)
+- As i mentioned earlier, this will change the way sideDrawer is rendered as it is now controlled by the show prop via CSSTransition in sideDrawer component and therefore the ternary expression is no longer needed as we pass the drawerIsOpen variable to the show prop which is either true or false.
+
+
 
 
 
