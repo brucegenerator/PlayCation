@@ -7,6 +7,7 @@ import "./PlaceList.css";
 
 const PlaceList = (props) => {
   if (props.items.length === 0) {
+    console.log(props.items)
     return (
       <div className="place-list center">
         <Card>
@@ -16,9 +17,11 @@ const PlaceList = (props) => {
       </div>
     );
   }
+  
   return (
     <ul className="place-list">
       {props.items.map((place) => (
+        
         <PlaceItem
           key={place.id}
           id={place.id}
