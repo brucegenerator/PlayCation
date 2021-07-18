@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
+import Auth from './user/pages/Auth'
 import Users from "./user/pages/Users";
 import NewPlace from "./places/pages/NewPlace";
 import UserPlaces from './places/pages/UserPlaces'
@@ -13,6 +14,9 @@ function App() {
       <MainNavigation />
       <main>
       <Switch>
+      <Route path="/auth" exact>
+        <Auth />
+      </Route>
       <Route path="/" exact>
         <Users />
       </Route>
