@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
-const { validationResult } = require('express-validator');
+const { validationResult } = require("express-validator");
 const HttpError = require("../models/http-error");
+const getCoordsForAddress = require("../util/location");
 
 let DUMMY_PLACES = [
   {
@@ -33,7 +34,7 @@ const getPlacesById = (req, res, next) => {
 
 const getPlacesByUserId = (req, res, next) => {
   const userId = req.params.uid;
-  const places = DUMMY_PLACES.filter(p => {
+  const places = DUMMY_PLACES.filter((p) => {
     return p.creator === userId;
   });
 
@@ -46,17 +47,22 @@ const getPlacesByUserId = (req, res, next) => {
   res.json({ places });
 };
 
-const createPlace = (req, res, next) => {
+const createPlace = async (req, res, next) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    console.log(errors);
-    return next(      
-      new HttpError('Invalid inputs passed, please try again', 422)
-    )
+    next(new HttpError("Invalid inputs passed, please try again", 422));
   }
 
-  const { title, description, coordinates, address, creator } = req.body;
+  const { title, description, address, creator } = req.body;
+
+  let coordinates;
+  try {
+    coordinates = await getCoordsForAddress(address);
+  } catch (error) {
+    return next(error);
+  }
+
   const createdPlace = {
     id: uuidv4(),
     title,
@@ -76,28 +82,34 @@ const updatePlace = (req, res, next) => {
   if (!errors.isEmpty()) {
     console.log(errors);
     return next(
-      new HttpError('Invalid inputs: Title and/or Description must not be empty')
-    )
+      new HttpError(
+        "Invalid inputs: Title and/or Description must not be empty"
+      )
+    );
   }
 
   const { title, description } = req.body;
   const placeId = req.params.pid;
 
-  const updatedPlace = { ...DUMMY_PLACES.find(p => p.id === placeId) };
-  const placeIndex = DUMMY_PLACES.findIndex(p => p.id === placeId);
+  const updatedPlace = { ...DUMMY_PLACES.find((p) => p.id === placeId) };
+  const placeIndex = DUMMY_PLACES.findIndex((p) => p.id === placeId);
   updatedPlace.title = title;
   updatedPlace.description = description;
 
   DUMMY_PLACES[placeIndex] = updatedPlace;
-  res.status(200).json({place: updatedPlace});
-}
+  res.status(200).json({ place: updatedPlace });
+};
 
 const deletePlace = (req, res, next) => {
   const placeId = req.params.pid;
-  DUMMY_PLACES = DUMMY_PLACES.filter(p => p.id !== placeId);
-  res.status(200).json({ message: 'Place Deleted' });
-}
-
+  if (!DUMMY_PLACES.find((p) => p.id === placeId)) {
+    return next(
+      new HttpError("Could not find a place for the matching id", 404)
+    );
+  }
+  DUMMY_PLACES = DUMMY_PLACES.filter((p) => p.id !== placeId);
+  res.status(200).json({ message: "Place Deleted" });
+};
 
 exports.getPlacesById = getPlacesById;
 exports.getPlacesByUserId = getPlacesByUserId;
