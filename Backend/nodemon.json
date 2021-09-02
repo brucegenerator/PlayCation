@@ -1,0 +1,9 @@
+{
+  "env": {
+    "DB_USER": "bruce",
+    "DB_PASSWORD": "Mini6Nova",
+    "DB_NAME": "playCationMERN",
+    "GOOGLE_API_KEY": "AIzaSyAZva8lFkWE5ZI2y_veXRe8zMy27iG5yso",
+    "JWT_KEY": "supersecret_dont_share"
+  }
+}
